@@ -1,0 +1,18 @@
+# Lee Brower — W.B. Construction LLC
+Builder: Wade Lee Brower Jr, master carpenter and construction
+superintendent (30+ years), Andalusia, Alabama. He builds practical
+software and tools for working contractors and sells them on Gumroad.
+
+## Products
+- ContractorOS — contractor management software (daily logs, documents,
+  estimates, trade calculators), flat per-company subscription from
+  $49/month: https://wadebrower.gumroad.com/l/contractoros-v3
+- Marine Contractor OS — Docks, Piers & Pile Driving — job software for
+  marine contractors, $49/month: https://wadebrower.gumroad.com/l/wxyodh
+- Contractor Quote & Bid Kit — $97: https://wadebrower.gumroad.com/l/vmjexh
+- Contractor's AI Prompt Playbook — $19: https://wadebrower.gumroad.com/l/axqqo
+
+## Store
+- Storefront: https://wadebrower792.github.io/lee-brower-storefront/
+- Terms: https://wadebrower792.github.io/lee-brower-storefront/terms.html
+Prices may change; the listing page governs at purchase time.
