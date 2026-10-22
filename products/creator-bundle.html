@@ -30,13 +30,22 @@ h2.sec{margin:2.4rem 0 1rem;font-size:1.35rem;border-bottom:2px solid var(--gold
 .crumb{max-width:1100px;margin:0 auto;padding:1.2rem 1.25rem 0;color:var(--mut);font-size:.9rem}
 .crumb a{color:var(--gold);text-decoration:none}
 footer{max-width:1100px;margin:3rem auto 0;padding:0 1.25rem;color:var(--mut);font-size:.85rem}
-footer a{color:var(--gold);text-decoration:none}</style>
+footer a{color:var(--gold);text-decoration:none}
+.shelf{display:flex;align-items:flex-end;justify-content:center;height:256px;margin:-1.2rem -1.2rem 1.05rem;padding:0 .6rem 16px;background:radial-gradient(130% 105% at 50% 0%,#26303f 0%,#131820 72%);border-bottom:3px solid #0a0d11;border-radius:10px 10px 0 0;box-shadow:inset 0 -14px 18px -12px rgba(0,0,0,.85)}
+.box{display:inline-block;position:relative;line-height:0;border-radius:3px 9px 9px 3px;overflow:hidden;box-shadow:12px 16px 30px rgba(0,0,0,.6),inset 3px 0 7px rgba(255,255,255,.15);transition:transform .18s ease,box-shadow .18s ease}
+.box::before{content:"";position:absolute;top:0;bottom:0;left:0;width:9px;z-index:2;background:linear-gradient(90deg,rgba(0,0,0,.52),rgba(255,255,255,.14) 45%,rgba(0,0,0,.4))}
+.box::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(112deg,rgba(255,255,255,.13) 0%,rgba(255,255,255,0) 36%)}
+.box img{display:block;width:auto;height:auto;max-width:100%;max-height:238px}
+.card:hover .box{transform:translateY(-5px) rotate(-.4deg);box-shadow:16px 24px 36px rgba(0,0,0,.65),inset 3px 0 7px rgba(255,255,255,.15)}
+.hero-cover{display:flex;justify-content:center;padding:1.5rem 1rem 1.3rem;margin:0 0 1.3rem;background:radial-gradient(130% 105% at 50% 0%,#26303f 0%,#131820 72%);border:1px solid #232a36;border-bottom:3px solid #0a0d11;border-radius:12px;box-shadow:inset 0 -14px 18px -12px rgba(0,0,0,.85)}
+.hero-cover .box img{max-height:440px;max-width:min(430px,100%)}
+</style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Product", "name": "The Creator Bundle — YouTube Growth Guide, AI Video Money Playbooks, CINET Studio Crew & After Sora Pack", "description": "The complete AI-video stack: the YouTube Creators Guide, the AI Video Monetization money playbooks, the CINET AI Studio Crew, and the After Sora prompt migration pack. Bought separately: $116.", "offers": {"@type": "Offer", "price": "89", "priceCurrency": "USD"}, "url": "https://wadebrower.gumroad.com/l/ztxho", "brand": {"@type": "Brand", "name": "Wade Lee Brower Jr"}}</script>
 </head>
 <body>
 <nav class="crumb"><a href="../index.html">Lee Brower Storefront</a> · <a href="https://wadebrower792.github.io/lee-brower-store/">Lee Brower — Home &amp; Services</a> · The Creator Bundle</nav>
 <header><h1>The Creator Bundle — YouTube Growth Guide, AI Video Money Playbooks, CINET Studio Crew &amp; After Sora Pack</h1></header>
-<main><div class="detail">
+<main><div class="detail"><div class="hero-cover"><span class="box"><img src="../covers/creator-bundle.webp" alt="The Creator Bundle — cover art"></span></div>
 <p class="price" style="font-size:1.5rem">$89</p>
 <p>The complete AI-video stack: the YouTube Creators Guide, the AI Video Monetization money playbooks, the CINET AI Studio Crew, and the After Sora prompt migration pack. Bought separately: $116.</p>
 <p>Built and sold by Wade Lee Brower Jr — a working master carpenter and construction superintendent. Checkout and delivery are handled by Gumroad.</p>
