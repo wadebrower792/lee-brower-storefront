@@ -216,5 +216,23 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://wadebrower792.github.io/lee-brower-storefront/products/agentic-architecture-engine.html</loc>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://wadebrower792.github.io/lee-brower-storefront/products/merch.html</loc>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://wadebrower792.github.io/lee-brower-storefront/products/win-the-job.html</loc>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
 <url><loc>https://wadebrower792.github.io/lee-brower-storefront/terms.html</loc></url>
 </urlset>
