@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://wadebrower792.github.io/lee-brower-storefront/sitemap.xml
