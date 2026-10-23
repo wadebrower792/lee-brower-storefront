@@ -201,7 +201,7 @@ ES_PRODUCTS = {
     "vmjexh": ("Kit de Cotización y Licitación para Contratistas — Paquete de 5 Oficios", "Paquete de 5 oficios"),
     "wadett": ("The Prompt Vault — 260 Prompts de IA para Negocios, Marketing, Ofertas, Imágenes y Operaciones (5 Libros)", "260 prompts de IA para negocios, marketing, ofertas, imágenes y operaciones (5 libros)"),
     "wbfwdj": ("Son of Man — App de Estudio Bíblico y Profecía con IA (Compra Única, Sin Suscripción)", "App de estudio bíblico y profecía con IA (compra única, sin suscripción)"),
-    "where-all-things-are": ("Where All Things Are — Una Novela de Fantasía Épica (530 Páginas)", "Una novela de fantasía épica (530 páginas)"),
+    "where-all-things-are": ("Where All Things Are — Una Novela de Fantasía Épica (531 Páginas)", "Una novela de fantasía épica (531 páginas)"),
     "where-all-things-are-sample": ("Where All Things Are — Muestra Gratuita: Lee el Prólogo y el Primer Capítulo", "Muestra gratuita: lee el prólogo y el primer capítulo"),
     "wxyodh": ("Marine Contractor OS — Muelles, Malecones e Hincado de Pilotes", "Muelles, malecones e hincado de pilotes"),
     "wyphlc": ("After Sora — Prompts de Video con IA para Kling, Veo y Runway: Paquete de Prompts Cinematográficos", "Prompts de video con IA para Kling, Veo y Runway: paquete de prompts cinematográficos"),
