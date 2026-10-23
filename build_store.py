@@ -13,18 +13,35 @@ payment step on Gumroad's own page (per Gumroad's help docs).
 Workflow: edit products.csv -> python3 build_store.py -> commit -> push.
 Adding a product (e.g. Trade Board) = one new CSV row + rerun this script.
 
+SEO is generated here too, never hand-edited: the same run writes sitemap.xml
+(every store page + one #p-<handle> anchor per live product) and robots.txt,
+and index.html carries per-product JSON-LD Product/Offer data built from the
+CSV (real titles, real prices, real Gumroad URLs — nothing invented).
+
 The "Sell in this store" vendor section below is static store furniture (not a
 product row). Its rent button is a PLACEHOLDER mailto: the Store Vendor Spot
 Gumroad membership does not exist yet (daily creation cap) — no checkout URL
 is invented.
 """
-import csv, html, re
+import csv, datetime, html, json, re
 from pathlib import Path
+from xml.sax.saxutils import escape as xml_escape
 
 ROOT = Path(__file__).resolve().parent
 CSV_PATH = ROOT / "products.csv"
 OUT_PATH = ROOT / "index.html"
+SITEMAP_PATH = ROOT / "sitemap.xml"
+ROBOTS_PATH = ROOT / "robots.txt"
 GUMROAD_BASE = "https://wadebrower.gumroad.com/l/"
+SITE_BASE = "https://wadebrower792.github.io/lee-brower-storefront"
+SITE_NAME = "Lee Brower Storefront"
+STORE_TITLE = ("Lee Brower Storefront — Contractor AI Tools, Construction "
+               "Bid Kit, Software, Courses & Books")
+STORE_DESC = ("Contractor AI tools and software built by a working contractor: "
+              "ContractorOS AI office software, the Contractor Quote & Bid Kit "
+              "for construction bidding, AI prompt playbooks for concrete, "
+              "excavation and carpentry, plus courses, books and games. "
+              "Live prices and direct Gumroad checkout.")
 
 CATEGORY_ORDER = ["Contractor Tools", "Apps & Software", "Prompt Packs",
                   "Courses & Film", "Books & Faith", "Games", "Merch", "Other"]
@@ -35,13 +52,16 @@ def slugify(text: str) -> str:
 def esc(s: str) -> str:
     return html.escape(s, quote=True)
 
+def anchor_id(r: dict) -> str:
+    return "p-" + slugify(r["handle"])
+
 def card_html(r: dict) -> str:
     url = GUMROAD_BASE + r["gumroad_slug"]
     search = " ".join([r["title"], r["category"], r["tags"], r["blurb"]]).lower()
     blurb = f'<p class="blurb">{esc(r["blurb"])}</p>' if r["blurb"] else ""
     compare = (f'<span class="was">${esc(r["compare_at_price"])}</span> '
                if r["compare_at_price"] else "")
-    return f'''<article class="card" data-category="{esc(r["category"])}" data-search="{esc(search)}">
+    return f'''<article class="card" id="{esc(anchor_id(r))}" data-category="{esc(r["category"])}" data-search="{esc(search)}">
 <div class="shot"><img src="{esc(r["image_src"])}" alt="{esc(r["image_alt"])}" loading="lazy"></div>
 <span class="tag">{esc(r["category"])}</span>
 <h3>{esc(r["title"])}</h3>
@@ -53,6 +73,98 @@ def card_html(r: dict) -> str:
 def price_num(r: dict) -> float:
     m = re.match(r"[\d.]+", r["price"])
     return float(m.group()) if m else 0.0
+
+def price_str(r: dict) -> str:
+    v = price_num(r)
+    return str(int(v)) if v == int(v) else f"{v:.2f}".rstrip("0").rstrip(".")
+
+def abs_url(path: str) -> str:
+    return path if path.startswith("http") else f"{SITE_BASE}/{path.lstrip('/')}"
+
+def product_desc(r: dict) -> str:
+    desc = (r["description"] or r["blurb"]).strip()
+    if desc:
+        return desc
+    return (f'{r["title"]} — a {r["category"]} product by Lee Brower, '
+            f'working contractor. Sold and delivered through Gumroad.')
+
+def product_jsonld(r: dict, position: int) -> dict:
+    anchor = f"{SITE_BASE}/#{anchor_id(r)}"
+    offer = {
+        "@type": "Offer",
+        "url": GUMROAD_BASE + r["gumroad_slug"],
+        "priceCurrency": "USD",
+        "price": price_str(r),
+        "availability": "https://schema.org/InStock",
+    }
+    if r["price"].strip().endswith("/month"):
+        offer["priceSpecification"] = {
+            "@type": "UnitPriceSpecification",
+            "price": price_str(r),
+            "priceCurrency": "USD",
+            "unitText": "MON",
+            "referenceQuantity": {"@type": "QuantitativeValue",
+                                  "value": "1", "unitCode": "MON"},
+        }
+    product = {
+        "@type": "Product",
+        "@id": anchor,
+        "name": r["title"],
+        "description": product_desc(r),
+        "category": r["category"],
+        "url": anchor,
+        "offers": offer,
+    }
+    if r["image_src"]:
+        product["image"] = abs_url(r["image_src"])
+    return {"@type": "ListItem", "position": position, "item": product}
+
+def store_jsonld(rows: list) -> str:
+    graph = {
+        "@context": "https://schema.org",
+        "@graph": [
+            {"@type": "WebSite", "@id": SITE_BASE + "/#website",
+             "name": SITE_NAME, "url": SITE_BASE + "/"},
+            {"@type": "Store", "@id": SITE_BASE + "/#store",
+             "name": SITE_NAME, "url": SITE_BASE + "/",
+             "description": STORE_DESC},
+            {"@type": "ItemList", "@id": SITE_BASE + "/#products",
+             "name": "Lee Brower catalog",
+             "numberOfItems": len(rows),
+             "itemListElement": [product_jsonld(r, i + 1)
+                                 for i, r in enumerate(rows)]},
+        ],
+    }
+    return json.dumps(graph, indent=1, ensure_ascii=False)
+
+def write_sitemap(rows: list) -> int:
+    today = datetime.date.today().isoformat()
+    urls = [(SITE_BASE + "/", "weekly", "1.0")]
+    for f in sorted((ROOT / "products").glob("*.html")):
+        urls.append((f"{SITE_BASE}/products/{f.name}", "weekly", "0.8"))
+    urls.append((f"{SITE_BASE}/terms.html", "yearly", "0.5"))
+    urls.append((f"{SITE_BASE}/samples/south-alabama/", "monthly", "0.4"))
+    for r in rows:
+        urls.append((f"{SITE_BASE}/#{anchor_id(r)}", "monthly", "0.6"))
+    lines = ['<?xml version="1.0" encoding="UTF-8"?>',
+             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+    for loc, freq, prio in urls:
+        lines += ["  <url>",
+                  f"    <loc>{xml_escape(loc)}</loc>",
+                  f"    <lastmod>{today}</lastmod>",
+                  f"    <changefreq>{freq}</changefreq>",
+                  f"    <priority>{prio}</priority>",
+                  "  </url>"]
+    lines.append("</urlset>")
+    SITEMAP_PATH.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    return len(urls)
+
+def write_robots() -> None:
+    ROBOTS_PATH.write_text(
+        "User-agent: OAI-SearchBot\nAllow: /\n\n"
+        "User-agent: GPTBot\nAllow: /\n\n"
+        "User-agent: *\nAllow: /\n\n"
+        f"Sitemap: {SITE_BASE}/sitemap.xml\n", encoding="utf-8")
 
 def main() -> None:
     rows = [r for r in csv.DictReader(CSV_PATH.open(newline="", encoding="utf-8"))
@@ -67,6 +179,8 @@ def main() -> None:
            [c for c in by_cat if c not in CATEGORY_ORDER]
     for c in cats:
         by_cat[c].sort(key=lambda r: int(r["sort_order"]))
+
+    json_ld = store_jsonld(rows)
 
     nav = ['<button class="chip on" data-filter="all">All Products</button>',
            '<button class="chip" data-filter="Featured">Featured</button>']
@@ -89,19 +203,22 @@ def main() -> None:
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lee Brower Storefront — Contractor Tools, AI Software, Courses, Books &amp; Games</title>
-<meta name="description" content="The full Lee Brower catalog in one storefront: ContractorOS, the Contractor Quote &amp; Bid Kit, the Contractor's AI Prompt Playbook, CINET AI video studio, Signet AI Film School, the Legacy Agent, prompt libraries, books and games — with live prices and direct Gumroad checkout links.">
+<title>{esc(STORE_TITLE)}</title>
+<meta name="description" content="{esc(STORE_DESC)}">
 <link rel="canonical" href="https://wadebrower792.github.io/lee-brower-storefront/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Lee Brower Storefront">
-<meta property="og:title" content="Lee Brower Storefront — Contractor Tools, AI Software, Courses, Books &amp; Games">
-<meta property="og:description" content="The full Lee Brower catalog in one storefront: ContractorOS, the Contractor Quote &amp; Bid Kit, the Contractor's AI Prompt Playbook, CINET AI video studio, Signet AI Film School, the Legacy Agent, prompt libraries, books and games — with live prices and direct Gumroad checkout links.">
+<meta property="og:title" content="{esc(STORE_TITLE)}">
+<meta property="og:description" content="{esc(STORE_DESC)}">
 <meta property="og:url" content="https://wadebrower792.github.io/lee-brower-storefront/">
 <meta property="og:image" content="https://wadebrower792.github.io/lee-brower-storefront/covers/contractoros.webp">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Lee Brower Storefront — Contractor Tools, AI Software, Courses, Books &amp; Games">
-<meta name="twitter:description" content="The full Lee Brower catalog in one storefront: ContractorOS, the Contractor Quote &amp; Bid Kit, the Contractor's AI Prompt Playbook, CINET AI video studio, Signet AI Film School, the Legacy Agent, prompt libraries, books and games — with live prices and direct Gumroad checkout links.">
+<meta name="twitter:title" content="{esc(STORE_TITLE)}">
+<meta name="twitter:description" content="{esc(STORE_DESC)}">
 <meta name="twitter:image" content="https://wadebrower792.github.io/lee-brower-storefront/covers/contractoros.webp">
+<script type="application/ld+json">
+{json_ld}
+</script>
 <script src="https://gumroad.com/js/gumroad.js"></script>
 <style>
 :root{{--bg:#0e1116;--card:#171c24;--gold:#d4a94e;--txt:#eef1f6;--mut:#9aa3b2}}
@@ -212,8 +329,13 @@ footer a{{color:var(--gold);text-decoration:none}}
 </html>
 '''
     OUT_PATH.write_text(page, encoding="utf-8")
+    n_urls = write_sitemap(rows)
+    write_robots()
     print(f"generated {OUT_PATH.name}: {len(rows)} live cards "
           f"({len(featured)} featured, {len(cats)} categories)")
+    print(f"generated {SITEMAP_PATH.name}: {n_urls} URLs "
+          f"(home + {len(rows)} product anchors + store pages)")
+    print(f"generated {ROBOTS_PATH.name}")
 
 if __name__ == "__main__":
     main()
