@@ -324,9 +324,13 @@ JS = """
     var visible = 0;
     cards.forEach(function(c){
       var inFeatured = c.closest('#featured') !== null;
-      var okCat = (filter === 'all') ? true :
-                  (filter === 'Featured') ? inFeatured :
-                  (c.getAttribute('data-category') === filter);
+      var isDup = c.getAttribute('data-dup') === '1';
+      // One copy per view: a category duplicate shows only under its own
+      // category filter; a featured-shelf card shows under All/Featured
+      // but hides under a category filter (the category copy covers it).
+      var okCat = isDup ? (c.getAttribute('data-category') === filter) :
+                  inFeatured ? ((filter === 'all') || (filter === 'Featured')) :
+                  ((filter === 'all') || (c.getAttribute('data-category') === filter));
       var okQ = !q || c.getAttribute('data-search').indexOf(q) !== -1;
       var show = okCat && okQ;
       c.style.display = show ? '' : 'none';
@@ -350,14 +354,6 @@ JS = """
 })();
 """
 
-VENDOR_BODY_EN = {
-    "p1": "Got digital products of your own — a guide, a template pack, a course, a tool — and no storefront to put them on? Rent a spot on my shelves.",
-    "b1": "Your products shown as proper product cards — your graphics, your titles, your prices — on this store's shelves, in the category they belong in.",
-    "b2": "Every card links straight to <strong>your own Gumroad product page</strong>. The buyer pays you, at your register. I never touch your money, and I take no cut of your sales — the rent is all I charge.",
-    "b3": "Your spot stays up while your membership is active. Let it lapse and the cards come down.",
-    "p2": "How it works, plain: you buy the spot, then you send me your product details — title, price, cover picture, a short description, and your Gumroad link for each one. Me and my crew look everything over before it goes up. This is a curated shelf, not an open upload door: digital products only, nothing illegal, nothing pirated, no adult material, no money schemes, and you must own what you're selling. I can refuse or remove any listing — my name's on the store.",
-    "p3": "One honest note: I'm selling shelf space, not promising traffic or sales. Folks who find this store will see your products right alongside mine. What they buy is up to them.",
-}
 
 
 def localized(r: dict, lang: str):
@@ -367,7 +363,7 @@ def localized(r: dict, lang: str):
     return r["title"], r["blurb"]
 
 
-def card_html(r: dict, lang: str, feat: bool = False) -> str:
+def card_html(r: dict, lang: str, feat: bool = False, dup: bool = False) -> str:
     ch = i18n.CHROME[lang]
     cats = i18n.CATEGORIES[lang]
     title, blurb = localized(r, lang)
@@ -381,7 +377,12 @@ def card_html(r: dict, lang: str, feat: bool = False) -> str:
                if r["compare_at_price"] else "")
     ribbon = f'<span class="ribbon">{esc(ch["featured"])}</span>' if feat else ""
     cls = "card feat" if feat else "card"
-    return f'''<article class="{cls}" id="{esc(anchor_id(r))}" data-category="{esc(cat_local)}" data-search="{esc(search)}">
+    # dup=True: the category-section copy of a featured product. It gets a
+    # suffixed id (the featured card keeps the canonical anchor) and a
+    # data-dup flag so the filter JS shows exactly one copy per view.
+    card_id = esc(anchor_id(r)) + ("-cat" if dup else "")
+    dup_attr = ' data-dup="1"' if dup else ""
+    return f'''<article class="{cls}" id="{card_id}" data-category="{esc(cat_local)}"{dup_attr} data-search="{esc(search)}">
 <div class="shot" style="--img:url(&quot;{esc(img)}&quot;)"><img src="{esc(img)}" alt="{esc(r["image_alt"])}" loading="lazy" decoding="async"><span class="tag">{esc(cat_local)}</span>{ribbon}</div>
 <div class="body">
 <h3>{esc(title)}</h3>
@@ -392,14 +393,16 @@ def card_html(r: dict, lang: str, feat: bool = False) -> str:
 </article>'''
 
 
-def section_html(cat_en: str, rows: list, lang: str, feat: bool = False) -> str:
+def section_html(cat_en: str, rows: list, lang: str, feat: bool = False,
+                 dup_handles: set = frozenset()) -> str:
     ch = i18n.CHROME[lang]
     name = ch["featured"] if feat else i18n.CATEGORIES[lang].get(cat_en, cat_en)
     icon = (CATEGORY_ICONS["Featured"] if feat
             else CATEGORY_ICONS.get(cat_en, CATEGORY_ICONS["Other"]))
     sid = "featured" if feat else f"cat-{slugify(cat_en)}"
     grid_cls = "grid feat" if feat else "grid"
-    cards = "".join(card_html(r, lang, feat) for r in rows)
+    cards = "".join(card_html(r, lang, feat, dup=(r["handle"] in dup_handles))
+                    for r in rows)
     return f'''<section class="shelf-sec" id="{sid}">
 <div class="sec-head"><span class="sec-ico"><svg viewBox="0 0 24 24" aria-hidden="true">{icon}</svg></span><h2>{esc(name)}</h2><span class="sec-count">{len(rows)}</span><span class="sec-rule"></span></div>
 <div class="{grid_cls}">{cards}</div>
@@ -420,22 +423,6 @@ def langbar_html(lang: str) -> str:
     return '<div class="langbar">' + "".join(items) + "</div>"
 
 
-def vendor_html(lang: str) -> str:
-    ch = i18n.CHROME[lang]
-    body = i18n.VENDOR_BODY_ES if lang == "es" else VENDOR_BODY_EN
-    return f'''<section class="vendor" id="sell">
-<h2>{esc(ch["vendor_h2"])}</h2>
-<p>{body["p1"]}</p>
-<p class="vprice">{ch["vendor_price_html"]}</p>
-<ul>
-<li>{body["b1"]}</li>
-<li>{body["b2"]}</li>
-<li>{body["b3"]}</li>
-</ul>
-<p>{body["p2"]}</p>
-<p>{body["p3"]}</p>
-<a class="vbtn" href="mailto:wadebrower792@gmail.com?subject=Store%20Vendor%20Spot">{esc(ch["vendor_btn"])}</a>
-</section>'''
 
 
 def render_page(lang: str, rows: list, featured: list, by_cat: dict,
@@ -449,8 +436,13 @@ def render_page(lang: str, rows: list, featured: list, by_cat: dict,
         local = i18n.CATEGORIES[lang].get(c, c)
         nav.append(f'<button class="chip" data-filter="{esc(local)}">{esc(local)}</button>')
     sections = [section_html("Featured", featured, lang, feat=True)]
+    # Category sections include featured products too (as dup cards), so a
+    # flagship is findable by scrolling its category, not only on the
+    # Featured shelf. The filter JS shows exactly one copy per view.
+    dup_handles = {r["handle"] for r in featured}
     for c in cats:
-        sections.append(section_html(c, by_cat[c], lang))
+        sections.append(section_html(c, by_cat[c], lang,
+                                     dup_handles=dup_handles))
     ld = f'<script type="application/ld+json">\n{json_ld}\n</script>\n' if lang == "en" else ""
     rel_root = "./" if lang == "en" else "../"
     return f'''<!DOCTYPE html>
@@ -493,7 +485,6 @@ def render_page(lang: str, rows: list, featured: list, by_cat: dict,
 <main id="store">
 {''.join(sections)}
 <p class="noresults" id="noresults">{esc(ch["noresults"])}</p>
-{vendor_html(lang)}
 </main>
 <footer>
 <div class="foot-in">
@@ -511,10 +502,11 @@ def main() -> None:
             if r["status"] == "live"]
     featured = sorted([r for r in rows if r["featured"] == "true"],
                       key=lambda r: -price_num(r))
+    # Category sections include featured rows too (rendered as dup cards);
+    # the filter JS guarantees one visible copy per view.
     by_cat = {}
     for r in rows:
-        if r["featured"] != "true":
-            by_cat.setdefault(r["category"], []).append(r)
+        by_cat.setdefault(r["category"], []).append(r)
     cats = [c for c in CATEGORY_ORDER if c in by_cat] + \
            [c for c in by_cat if c not in CATEGORY_ORDER]
     for c in cats:
@@ -535,7 +527,7 @@ def main() -> None:
     write_robots()
     print(f"generated sitemap.xml: {n_urls} URLs (canonical set + hreflang alternates)")
     print(f"generated robots.txt")
-    print(f"cards per page: {len(rows)} ({len(featured)} featured, {len(cats)} categories)")
+    print(f"cards per page: {len(rows) + len(featured)} rendered ({len(rows)} products, {len(featured)} also in categories, {len(cats)} categories)")
 
 
 if __name__ == "__main__":
