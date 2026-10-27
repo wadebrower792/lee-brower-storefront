@@ -191,7 +191,11 @@ def write_sitemap(rows: list) -> int:
     urls = [(SITE_BASE + "/", "weekly", "1.0", "")]
     for f in sorted((ROOT / "products").glob("*.html")):
         urls.append((f"{SITE_BASE}/products/{f.name}", "weekly", "0.8", None))
+    for f in sorted((ROOT / "compare").glob("*.html")):
+        urls.append((f"{SITE_BASE}/compare/{f.name}", "weekly", "0.8", None))
     urls.append((f"{SITE_BASE}/terms.html", "yearly", "0.5", None))
+    for g in GUIDES:
+        urls.append((f"{SITE_BASE}/guides/{g['slug']}.html", "monthly", "0.7", None))
     urls.append((f"{SITE_BASE}/samples/south-alabama/", "monthly", "0.4", None))
     for r in rows:
         a = f"#{anchor_id(r)}"
@@ -219,6 +223,154 @@ def write_robots() -> None:
         "User-agent: GPTBot\nAllow: /\n\n"
         "User-agent: *\nAllow: /\n\n"
         f"Sitemap: {SITE_BASE}/sitemap.xml\n", encoding="utf-8")
+
+
+# Field Guides: long-form articles published on the storefront (English
+# only). Source markdown lives in guides-src/; the build renders each to
+# guides/<slug>.html with the store chrome, a canonical URL, and Article
+# JSON-LD. Descriptions below are plain summaries of the article's own
+# content — no invented claims, reviews, or sales numbers.
+GUIDES = [
+    {"slug": "how-to-write-a-construction-bid-that-wins-work",
+     "title": "How to Write a Construction Bid That Wins Work",
+     "desc": "A working contractor's plain-English guide to bids that hold up: "
+             "the site walk, itemized scope, exclusions, knowing your "
+             "number, and following up.",
+     "date": "2026-10-27"},
+    {"slug": "ai-tools-for-contractors-what-actually-saves-time",
+     "title": "AI Tools for Contractors: What Actually Saves Time on a Real Job",
+     "desc": "Which AI tools actually save a contractor time this week — "
+             "drafting, follow-ups, and reading paper — and what not to "
+             "trust them with.",
+     "date": "2026-10-27"},
+]
+
+GUIDE_EXTRA_CSS = """
+.guide-wrap{max-width:760px;margin:0 auto;padding:2.2rem 1.25rem 3rem}
+.guide-wrap h1{font-size:clamp(1.7rem,4.5vw,2.4rem);line-height:1.2;margin:1rem 0 .4rem}
+.guide-wrap h2{color:var(--gold);font-size:1.35rem;margin:2.2rem 0 .4rem}
+.guide-wrap p{margin:1rem 0;color:#d7dce6}
+.guide-wrap blockquote{border-left:3px solid var(--gold);padding:.5rem 1.1rem;margin:1rem 0;color:var(--mut);font-style:italic}
+.guide-wrap hr{border:none;border-top:1px solid var(--line);margin:2rem 0}
+.byline{color:var(--gold2);font-size:.95rem}
+.backlink{display:inline-block;margin-bottom:.5rem;color:var(--gold);text-decoration:none;font-weight:700}
+.backlink:hover{text-decoration:underline}
+.guides-sec .guide-list{display:grid;gap:1rem}
+a.guide-item{display:block;background:linear-gradient(180deg,#171d29,#12151d);border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:14px;padding:1.1rem 1.3rem;text-decoration:none}
+a.guide-item:hover{border-color:rgba(212,169,78,.65)}
+a.guide-item strong{display:block;color:var(--txt);font-size:1.08rem;margin-bottom:.25rem}
+a.guide-item span{color:var(--mut);font-size:.93rem}
+"""
+
+
+def md_inline(text: str) -> str:
+    """Inline markdown (links, bold, italic) on already-escaped text."""
+    text = re.sub(r"\[([^\]]+)\]\((https?://[^)\s]+)\)",
+                  r'<a href="\2">\1</a>', text)
+    text = re.sub(r"\*\*([^*]+)\*\*", r"<strong>\1</strong>", text)
+    text = re.sub(r"\*([^*]+)\*", r"<em>\1</em>", text)
+    return text
+
+
+def md_to_html(md: str) -> str:
+    """Minimal markdown for the guide sources: H1/H2, paragraphs with
+    wrapped lines joined, blockquotes, hr. No raw HTML passes through."""
+    blocks, para, quote = [], [], []
+    def flush_para():
+        if para:
+            blocks.append("<p>" + md_inline(html.escape(" ".join(para))) + "</p>")
+            para.clear()
+    def flush_quote():
+        if quote:
+            blocks.append("<blockquote><p>" +
+                          md_inline(html.escape(" ".join(quote))) + "</p></blockquote>")
+            quote.clear()
+    for raw in md.split("\n"):
+        line = raw.strip()
+        if not line:
+            flush_para(); flush_quote(); continue
+        if line.startswith("## "):
+            flush_para(); flush_quote()
+            blocks.append("<h2>" + md_inline(html.escape(line[3:].strip())) + "</h2>")
+        elif line.startswith("# "):
+            flush_para(); flush_quote()
+            blocks.append("<h1>" + md_inline(html.escape(line[2:].strip())) + "</h1>")
+        elif line == "---":
+            flush_para(); flush_quote()
+            blocks.append("<hr>")
+        elif line.startswith("> "):
+            flush_para()
+            quote.append(line[2:].strip())
+        elif line.startswith("By Wade Lee Brower Jr"):
+            flush_para(); flush_quote()
+            blocks.append('<p class="byline">' + html.escape(line) + "</p>")
+        else:
+            flush_quote()
+            para.append(line)
+    flush_para(); flush_quote()
+    return "\n".join(blocks)
+
+
+def guide_page_html(g: dict, body_html: str) -> str:
+    url = f"{SITE_BASE}/guides/{g['slug']}.html"
+    ld = {"@context": "https://schema.org", "@type": "Article",
+          "headline": g["title"], "description": g["desc"],
+          "author": {"@type": "Person", "name": "Wade Lee Brower Jr"},
+          "datePublished": g["date"], "mainEntityOfPage": url}
+    return f'''<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{esc(g["title"])} — Lee Brower Storefront</title>
+<meta name="description" content="{esc(g["desc"])}">
+<link rel="canonical" href="{esc(url)}">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Lee Brower Storefront">
+<meta property="og:title" content="{esc(g["title"])}">
+<meta property="og:description" content="{esc(g["desc"])}">
+<meta property="og:url" content="{esc(url)}">
+<script type="application/ld+json">
+{json.dumps(ld, indent=1, ensure_ascii=False)}
+</script>
+<script src="https://gumroad.com/js/gumroad.js"></script>
+<style>{CSS}{GUIDE_EXTRA_CSS}</style>
+</head>
+<body>
+<main class="guide-wrap">
+<a class="backlink" href="../">← Back to the storefront</a>
+{body_html}
+<p><a href="../">Back to the Lee Brower Storefront</a> · <a href="../terms.html">Terms</a></p>
+</main>
+</body>
+</html>
+'''
+
+
+def guides_section_html() -> str:
+    icon = CATEGORY_ICONS["Books & Faith"]
+    items = "".join(
+        f'<a class="guide-item" href="guides/{g["slug"]}.html">'
+        f'<strong>{esc(g["title"])}</strong><span>{esc(g["desc"])}</span></a>'
+        for g in GUIDES)
+    return f'''<section class="guides-sec" id="guides">
+<div class="sec-head"><span class="sec-ico"><svg viewBox="0 0 24 24" aria-hidden="true">{icon}</svg></span><h2>Field Guides</h2><span class="sec-count">{len(GUIDES)}</span><span class="sec-rule"></span></div>
+<div class="guide-list">{items}</div>
+</section>'''
+
+
+def write_guides() -> list:
+    out_dir = ROOT / "guides"
+    out_dir.mkdir(exist_ok=True)
+    written = []
+    for g in GUIDES:
+        src = ROOT / "guides-src" / (g["slug"] + ".md")
+        body = md_to_html(src.read_text(encoding="utf-8"))
+        page = guide_page_html(g, body)
+        (out_dir / (g["slug"] + ".html")).write_text(page, encoding="utf-8")
+        written.append(g["slug"])
+        print(f"generated guides/{g['slug']}.html: {len(page.encode('utf-8'))} bytes")
+    return written
 
 
 CSS = """
@@ -483,7 +635,7 @@ def render_page(lang: str, rows: list, featured: list, by_cat: dict,
 </header>
 <nav class="cats" aria-label="{esc(ch["cats_label"])}"><div class="cats-in">{''.join(nav)}</div></nav>
 <main id="store">
-{''.join(sections)}
+{''.join(sections)}{guides_section_html() if lang == "en" else ""}
 <p class="noresults" id="noresults">{esc(ch["noresults"])}</p>
 </main>
 <footer>
@@ -523,6 +675,7 @@ def main() -> None:
         out.write_text(page, encoding="utf-8")
         print(f"generated {out.relative_to(ROOT)}: {len(page.encode('utf-8'))} bytes")
 
+    write_guides()
     n_urls = write_sitemap(rows)
     write_robots()
     print(f"generated sitemap.xml: {n_urls} URLs (canonical set + hreflang alternates)")
