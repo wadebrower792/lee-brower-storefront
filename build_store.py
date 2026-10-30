@@ -273,6 +273,26 @@ BLOGS = [
              "pedestrian fatality risk on Halloween evening — and the "
              "steepest risk for children aged 4 to 8.",
      "date": "2026-10-30"},
+    {"slug": "data-center-boom-construction-october-2026",
+     "title": "The Data Center Boom Is Carrying Construction — and Squeezing "
+             "Everyone Else",
+     "desc": "October 2026 data: data center spending up more than 70 percent "
+             "year over year while other private nonresidential spending "
+             "fell, and material prices up 11.2 percent.",
+     "date": "2026-10-30"},
+    {"slug": "clocks-fall-back-november-1-2026",
+     "title": "Clocks Fall Back Sunday, November 1: What Actually Changes",
+     "desc": "Daylight saving time ends at 2 a.m. local time on November 1, "
+             "2026 — the earliest date the law allows — and the "
+             "permanent-daylight bill has not passed the Senate.",
+     "date": "2026-10-30"},
+    {"slug": "spain-train-crash-urda-what-is-confirmed",
+     "title": "Spain's Train Crash at Urda: What Is Confirmed, and What Is "
+             "Not Yet",
+     "desc": "At least 69 dead near Urda, a preliminary speed estimate of "
+             "160 to 200 kph, and a corrected 74 figure — what the "
+             "investigation has and has not settled.",
+     "date": "2026-10-30"},
 ]
 
 GUIDE_EXTRA_CSS = """
