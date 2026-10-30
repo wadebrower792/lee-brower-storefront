@@ -196,6 +196,9 @@ def write_sitemap(rows: list) -> int:
     urls.append((f"{SITE_BASE}/terms.html", "yearly", "0.5", None))
     for g in GUIDES:
         urls.append((f"{SITE_BASE}/guides/{g['slug']}.html", "monthly", "0.7", None))
+    urls.append((f"{SITE_BASE}/blog/", "daily", "0.8", None))
+    for b in BLOGS:
+        urls.append((f"{SITE_BASE}/blog/{b['slug']}.html", "monthly", "0.7", None))
     urls.append((f"{SITE_BASE}/samples/south-alabama/", "monthly", "0.4", None))
     for r in rows:
         a = f"#{anchor_id(r)}"
@@ -243,6 +246,33 @@ GUIDES = [
              "drafting, follow-ups, and reading paper — and what not to "
              "trust them with.",
      "date": "2026-10-27"},
+]
+
+# Blog: daily posts on popular subjects, verifiable facts only, each
+# carrying the store ad block. Source markdown lives in blog-src/; the
+# build renders each to blog/<slug>.html plus blog/index.html, with the
+# store chrome, a canonical URL, and Article JSON-LD. Descriptions are
+# plain summaries of the post's own content — no invented claims.
+BLOGS = [
+    {"slug": "meta-muse-10-million-setups-checked",
+     "title": "10 Million Setups: What Meta's Muse Numbers Actually Say",
+     "desc": "Meta's Muse passed 10 million setups in the US and Canada in "
+             "about six weeks — what the earnings reporting actually said, "
+             "and what it did not prove.",
+     "date": "2026-10-30"},
+    {"slug": "binance-6-3-billion-hack-what-is-confirmed",
+     "title": "Binance Hack: $6.3 Billion Gone, and What Is Actually Confirmed",
+     "desc": "Hackers drained about $6.3 billion from Binance on October 29, "
+             "2026 — what Binance and the tracing firms actually said, "
+             "and what is attribution, not proven fact.",
+     "date": "2026-10-30"},
+    {"slug": "halloween-pedestrian-safety-data",
+     "title": "Halloween Night Is the Riskiest Night for Young Pedestrians. "
+             "The Data Says Why.",
+     "desc": "Four decades of federal crash data show a 43 percent higher "
+             "pedestrian fatality risk on Halloween evening — and the "
+             "steepest risk for children aged 4 to 8.",
+     "date": "2026-10-30"},
 ]
 
 GUIDE_EXTRA_CSS = """
@@ -370,6 +400,99 @@ def write_guides() -> list:
         (out_dir / (g["slug"] + ".html")).write_text(page, encoding="utf-8")
         written.append(g["slug"])
         print(f"generated guides/{g['slug']}.html: {len(page.encode('utf-8'))} bytes")
+    return written
+
+
+def blog_page_html(b: dict, body_html: str) -> str:
+    url = f"{SITE_BASE}/blog/{b['slug']}.html"
+    ld = {"@context": "https://schema.org", "@type": "Article",
+          "headline": b["title"], "description": b["desc"],
+          "author": {"@type": "Person", "name": "Wade Lee Brower Jr"},
+          "datePublished": b["date"], "mainEntityOfPage": url}
+    return f'''<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{esc(b["title"])} — Lee Brower Blog</title>
+<meta name="description" content="{esc(b["desc"])}">
+<link rel="canonical" href="{esc(url)}">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Lee Brower Storefront">
+<meta property="og:title" content="{esc(b["title"])}">
+<meta property="og:description" content="{esc(b["desc"])}">
+<meta property="og:url" content="{esc(url)}">
+<script type="application/ld+json">
+{json.dumps(ld, indent=1, ensure_ascii=False)}
+</script>
+<script src="https://gumroad.com/js/gumroad.js"></script>
+<style>{CSS}{GUIDE_EXTRA_CSS}</style>
+</head>
+<body>
+<main class="guide-wrap">
+<a class="backlink" href="./">← Back to the blog</a>
+{body_html}
+<p><a href="./">Back to the blog</a> · <a href="../">Back to the Lee Brower Storefront</a> · <a href="../terms.html">Terms</a></p>
+</main>
+</body>
+</html>
+'''
+
+
+def blog_section_html() -> str:
+    icon = CATEGORY_ICONS["Books & Faith"]
+    latest = sorted(BLOGS, key=lambda b: b["date"], reverse=True)[:6]
+    items = "".join(
+        f'<a class="guide-item" href="blog/{b["slug"]}.html">'
+        f'<strong>{esc(b["title"])}</strong><span>{esc(b["date"])} — '
+        f'{esc(b["desc"])}</span></a>'
+        for b in latest)
+    return f'''<section class="guides-sec" id="blog">
+<div class="sec-head"><span class="sec-ico"><svg viewBox="0 0 24 24" aria-hidden="true">{icon}</svg></span><h2>Blog</h2><span class="sec-count">{len(BLOGS)}</span><span class="sec-rule"></span></div>
+<div class="guide-list">{items}</div>
+<p style="margin-top:1rem"><a href="blog/">See all blog posts →</a></p>
+</section>'''
+
+
+def write_blogs() -> list:
+    out_dir = ROOT / "blog"
+    out_dir.mkdir(exist_ok=True)
+    written = []
+    for b in BLOGS:
+        src = ROOT / "blog-src" / (b["slug"] + ".md")
+        body = md_to_html(src.read_text(encoding="utf-8"))
+        page = blog_page_html(b, body)
+        (out_dir / (b["slug"] + ".html")).write_text(page, encoding="utf-8")
+        written.append(b["slug"])
+        print(f"generated blog/{b['slug']}.html: {len(page.encode('utf-8'))} bytes")
+    items = "".join(
+        f'<a class="guide-item" href="{b["slug"]}.html">'
+        f'<strong>{esc(b["title"])}</strong><span>{esc(b["date"])} — '
+        f'{esc(b["desc"])}</span></a>'
+        for b in sorted(BLOGS, key=lambda b: b["date"], reverse=True))
+    index = f'''<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — Lee Brower Storefront</title>
+<meta name="description" content="Daily posts on popular subjects, verifiable facts only, from Wade Lee Brower Jr.">
+<link rel="canonical" href="{SITE_BASE}/blog/">
+<style>{CSS}{GUIDE_EXTRA_CSS}</style>
+</head>
+<body>
+<main class="guide-wrap">
+<a class="backlink" href="../">← Back to the storefront</a>
+<h1>Lee Brower Blog</h1>
+<p class="byline">Daily posts on popular subjects. Verifiable facts only, sources cited in each post.</p>
+<div class="guide-list">{items}</div>
+<p><a href="../">Back to the Lee Brower Storefront</a></p>
+</main>
+</body>
+</html>
+'''
+    (out_dir / "index.html").write_text(index, encoding="utf-8")
+    print(f"generated blog/index.html: {len(index.encode('utf-8'))} bytes")
     return written
 
 
@@ -635,7 +758,7 @@ def render_page(lang: str, rows: list, featured: list, by_cat: dict,
 </header>
 <nav class="cats" aria-label="{esc(ch["cats_label"])}"><div class="cats-in">{''.join(nav)}</div></nav>
 <main id="store">
-{''.join(sections)}{guides_section_html() if lang == "en" else ""}
+{''.join(sections)}{guides_section_html() if lang == "en" else ""}{blog_section_html() if lang == "en" else ""}
 <p class="noresults" id="noresults">{esc(ch["noresults"])}</p>
 </main>
 <footer>
@@ -676,6 +799,7 @@ def main() -> None:
         print(f"generated {out.relative_to(ROOT)}: {len(page.encode('utf-8'))} bytes")
 
     write_guides()
+    write_blogs()
     n_urls = write_sitemap(rows)
     write_robots()
     print(f"generated sitemap.xml: {n_urls} URLs (canonical set + hreflang alternates)")
