@@ -293,6 +293,27 @@ BLOGS = [
              "160 to 200 kph, and a corrected 74 figure — what the "
              "investigation has and has not settled.",
      "date": "2026-10-30"},
+    {"slug": "midterm-elections-november-3-2026-what-polls-say",
+     "title": "Midterm Elections Are Tuesday, November 3: What the Polls "
+             "Actually Say",
+     "desc": "All 435 House seats, 35 Senate seats, and 36 governorships are "
+             "on the ballot Tuesday — and the polling averages point one "
+             "way nationally while the Senate stays contested.",
+     "date": "2026-10-31"},
+    {"slug": "california-king-tides-october-2026-records",
+     "title": "California's King Tides Just Set Records. The Next Ones "
+             "Could Be Higher.",
+     "desc": "San Diego's gauge hit a station record of 8.52 feet on October "
+             "27, Huntington Beach declared a local emergency, and the "
+             "predicted winter king tides are higher still.",
+     "date": "2026-10-31"},
+    {"slug": "dockworkers-strike-113-ports-supply-chain",
+     "title": "Dockworkers Struck at 113 Ports on Friday. Here's What It "
+             "Means for Materials and Deliveries.",
+     "desc": "Reuters: 113 ports in 22 countries struck October 30 over arms "
+             "shipments and seafarer deaths, while Los Angeles and Long "
+             "Beach talks extended to November 5.",
+     "date": "2026-10-31"},
 ]
 
 GUIDE_EXTRA_CSS = """
