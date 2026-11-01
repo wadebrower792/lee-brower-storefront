@@ -254,6 +254,27 @@ GUIDES = [
 # store chrome, a canonical URL, and Article JSON-LD. Descriptions are
 # plain summaries of the post's own content — no invented claims.
 BLOGS = [
+    {"slug": "early-voting-51-million-record-midterms-2026",
+     "title": "51 Million Ballots Are Already In: What the Early-Voting "
+             "Record Means — and What It Doesn't",
+     "desc": "More than 51.3 million ballots were cast before Election Day, "
+             "beating the whole 2022 early vote — and why that is a "
+             "participation record, not a result.",
+     "date": "2026-11-01"},
+    {"slug": "nasdaq-october-ai-spending-reuters-2026",
+     "title": "The Nasdaq's $2 Trillion October: AI Spending Is the "
+             "Question Now, Not the Answer",
+     "desc": "Reuters reported more than $2 trillion set to be wiped from "
+             "the Nasdaq 100 in October as investors asked when AI "
+             "spending pays off.",
+     "date": "2026-11-01"},
+    {"slug": "health-insurance-open-enrollment-2027-premiums",
+     "title": "Health Insurance Open Enrollment Opens Today — and "
+             "Benchmark Premiums Are Up 13 Percent",
+     "desc": "HealthCare.gov open enrollment for 2027 runs November 1 "
+             "through January 15, with benchmark Silver premiums up "
+             "13 percent on average, per KFF.",
+     "date": "2026-11-01"},
     {"slug": "meta-muse-10-million-setups-checked",
      "title": "10 Million Setups: What Meta's Muse Numbers Actually Say",
      "desc": "Meta's Muse passed 10 million setups in the US and Canada in "
