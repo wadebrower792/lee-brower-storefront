@@ -254,6 +254,28 @@ GUIDES = [
 # store chrome, a canonical URL, and Article JSON-LD. Descriptions are
 # plain summaries of the post's own content — no invented claims.
 BLOGS = [
+    {"slug": "cyclone-murasu-andhra-landfall-november-2026",
+     "title": "Cyclone Murasu Is Headed for India's Andhra Coast Tonight",
+     "desc": "The IMD forecasts landfall between Nellore and Narsapur late "
+             "November 2 into November 3, with 100-110 kmph winds, a "
+             "1.0-1.5 meter storm surge, and 30,000 people slated for "
+             "evacuation — the second east-coast storm in a week.",
+     "date": "2026-11-02"},
+    {"slug": "bitcoin-to-zero-searches-crypto-selloff-november-2026",
+     "title": "\"Bitcoin to Zero\" Searches Spiked 450 Percent. Here's What "
+             "the Market Actually Did",
+     "desc": "Crypto lost about $480 billion in market value this year and "
+             "Bitcoin is down about 12 percent year to date — what the "
+             "verified numbers say versus what the panic searches imply.",
+     "date": "2026-11-02"},
+    {"slug": "veterans-day-november-11-2026-whats-closed",
+     "title": "Veterans Day Is Wednesday, November 11: What's Closed, "
+             "What's Open, and Why the Date Never Moves",
+     "desc": "Federal offices, post offices, and banks close; the stock "
+             "market stays open. The history from the 1918 armistice to "
+             "the 1975 law that fixed the date, and why it is not "
+             "Memorial Day.",
+     "date": "2026-11-02"},
     {"slug": "early-voting-51-million-record-midterms-2026",
      "title": "51 Million Ballots Are Already In: What the Early-Voting "
              "Record Means — and What It Doesn't",
