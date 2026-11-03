@@ -254,6 +254,29 @@ GUIDES = [
 # store chrome, a canonical URL, and Article JSON-LD. Descriptions are
 # plain summaries of the post's own content — no invented claims.
 BLOGS = [
+    {"slug": "fbi-links-north-korea-binance-heist-november-2026",
+     "title": "The FBI Named North Korea in the Binance Heist. North Korea Says No.",
+     "desc": "The FBI attributed the $6.4 billion October 29 Binance theft to "
+             "TraderTraitor; Kim Yo Jong denied it. What the wallet "
+             "addresses, the 12,000-wallet laundering trail, and the "
+             "$2.85 billion frozen so far actually establish.",
+     "date": "2026-11-03"},
+    {"slug": "samsung-taylor-fab-2-amd-nvidia-hbm-november-2026",
+     "title": "Samsung's Second Texas Plant Is Reportedly for AMD and Nvidia — "
+             "and It's a Monster Build",
+     "desc": "Reuters, citing Maeil Business, reports Taylor Fab 2 will make "
+             "HBM base dies for AMD and Nvidia: 2.7 million square feet, "
+             "construction starting this month, production in 2030 — "
+             "and Samsung has not confirmed the customer list.",
+     "date": "2026-11-03"},
+    {"slug": "four-corners-pineapple-express-floods-november-2026",
+     "title": "A \"Pineapple Express\" Just Flooded the Desert — and Rivers Are "
+             "Still Rising",
+     "desc": "A Hawaiian moisture plume dropped 2 to 5 inches on the Four "
+             "Corners, pushing the Salt River past its flood of record, "
+             "flooding 150 to 200 homes near Rimrock, and forcing "
+             "evacuations across four states — twice in two weeks.",
+     "date": "2026-11-03"},
     {"slug": "cyclone-murasu-andhra-landfall-november-2026",
      "title": "Cyclone Murasu Is Headed for India's Andhra Coast Tonight",
      "desc": "The IMD forecasts landfall between Nellore and Narsapur late "
