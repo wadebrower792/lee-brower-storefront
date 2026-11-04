@@ -254,6 +254,29 @@ GUIDES = [
 # store chrome, a canonical URL, and Article JSON-LD. Descriptions are
 # plain summaries of the post's own content — no invented claims.
 BLOGS = [
+    {"slug": "midterm-results-november-4-2026-what-is-decided",
+     "title": "The Midterms Are Called a Democratic Sweep. Here's What Is "
+             "Decided — and What Isn't",
+     "desc": "Democrats flipped seven Senate seats and are projected to "
+             "hold both chambers, with historic firsts in Michigan, "
+             "New Hampshire, Georgia, and Florida — but Alaska and "
+             "Mississippi remain uncalled and the counts are still moving.",
+     "date": "2026-11-04"},
+    {"slug": "ai-memory-shortage-pc-phone-prices-november-2026",
+     "title": "AI Is Eating the World's Memory — and Your Next Laptop "
+             "Is Paying for It",
+     "desc": "DRAM contract prices rose roughly 90 percent or more in "
+             "one quarter as AI data centers outbid phone and PC "
+             "makers — and Gartner and IDC disagree on how far device "
+             "prices will follow.",
+     "date": "2026-11-04"},
+    {"slug": "brewers-first-world-series-parade-november-2026",
+     "title": "57 Years, One Parade: How Milwaukee Finally Celebrated "
+             "a World Series",
+     "desc": "After 57 seasons and a 4-1 series win over Tampa Bay, "
+             "more than 750,000 people turned out for the Brewers' "
+             "first championship parade on October 30.",
+     "date": "2026-11-04"},
     {"slug": "fbi-links-north-korea-binance-heist-november-2026",
      "title": "The FBI Named North Korea in the Binance Heist. North Korea Says No.",
      "desc": "The FBI attributed the $6.4 billion October 29 Binance theft to "
