@@ -254,6 +254,29 @@ GUIDES = [
 # store chrome, a canonical URL, and Article JSON-LD. Descriptions are
 # plain summaries of the post's own content — no invented claims.
 BLOGS = [
+    {"slug": "data-center-ballot-rebuke-november-2026",
+     "title": "Voters Said No to Data Centers 44 Times Out of 45 — "
+             "Here's What That Means for the Buildout",
+     "desc": "Voters decided 45 local data-center measures on November 3 "
+             "and the restriction side led in 44, with 72.8 percent of "
+             "the votes — but the measures ranged from bans to advisory "
+             "votes, and the work already under construction is unaffected.",
+     "date": "2026-11-05"},
+    {"slug": "kimi-antonelli-youngest-f1-champion-november-2026",
+     "title": "At 20 Years and 68 Days, Kimi Antonelli Is Formula 1's "
+             "Youngest Champion Ever",
+     "desc": "Antonelli clinched the 2026 title with a third-place finish "
+             "in Mexico, beating Sebastian Vettel's record by more than "
+             "three years and ending Italy's 73-year wait for a champion.",
+     "date": "2026-11-05"},
+    {"slug": "bank-of-england-rate-hike-4-percent-november-2026",
+     "title": "The Bank of England Just Raised Rates for the First "
+             "Time in Three Years",
+     "desc": "The Monetary Policy Committee voted 8-1 to lift Bank Rate "
+             "to 4 percent as inflation is forecast to reach around 5 "
+             "percent — and it warned more hikes may come if the "
+             "Middle East conflict continues.",
+     "date": "2026-11-05"},
     {"slug": "midterm-results-november-4-2026-what-is-decided",
      "title": "The Midterms Are Called a Democratic Sweep. Here's What Is "
              "Decided — and What Isn't",
