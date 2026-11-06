@@ -254,6 +254,27 @@ GUIDES = [
 # store chrome, a canonical URL, and Article JSON-LD. Descriptions are
 # plain summaries of the post's own content — no invented claims.
 BLOGS = [
+    {"slug": "wall-street-rout-november-5-2026-chips-ai-selloff",
+     "title": "Wall Street Gave Back the Whole Rally in One Day — "
+             "and Chips Took the Worst of It",
+     "desc": "The Dow fell 1,833 points, the Nasdaq 5.52 percent into "
+             "correction, and chip stocks led the rout as investors worried "
+             "the midterm results could slow the AI data-center buildout.",
+     "date": "2026-11-06"},
+    {"slug": "data-center-protests-amsterdam-microsoft-november-2026",
+     "title": "Protesters Climbed the Cranes at a Microsoft Data "
+             "Centre Site in Amsterdam",
+     "desc": "More than 100 activists broke into a Microsoft AI data "
+             "centre construction site as the Stop Dirty Data Centres "
+             "coalition opened two days of rallies in 16 countries.",
+     "date": "2026-11-06"},
+    {"slug": "newsom-commutes-548-death-sentences-november-2026",
+     "title": "California's Death Row Is Being Emptied: Newsom "
+             "Commutes All 548 Sentences",
+     "desc": "Gov. Gavin Newsom commuted every California death sentence "
+             "to life without parole, the largest mass commutation in "
+             "U.S. history — but two-thirds still need court review.",
+     "date": "2026-11-06"},
     {"slug": "data-center-ballot-rebuke-november-2026",
      "title": "Voters Said No to Data Centers 44 Times Out of 45 — "
              "Here's What That Means for the Buildout",
