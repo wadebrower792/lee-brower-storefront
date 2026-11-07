@@ -254,6 +254,27 @@ GUIDES = [
 # store chrome, a canonical URL, and Article JSON-LD. Descriptions are
 # plain summaries of the post's own content — no invented claims.
 BLOGS = [
+    {"slug": "tesla-cybertruck-production-ends-mid-2027",
+     "title": "Tesla Is Ending the Cybertruck — and Betting the "
+             "Factory on Robotaxis",
+     "desc": "Elon Musk said Tesla will wind down Cybertruck production "
+             "at Gigafactory Texas around mid-2027 to make room for the "
+             "Cybercab, after sales ran at roughly a tenth of plan.",
+     "date": "2026-11-07"},
+    {"slug": "anthropic-ipo-1-5-trillion-valuation-pushback",
+     "title": "Investors Are Balking at Anthropic's $1.5 Trillion "
+             "IPO Price Tag",
+     "desc": "Investors say Anthropic's IPO should be priced closer to "
+             "$1.5 trillion — or even $1 trillion — down from the $2 "
+             "trillion talked about in October, as the roadshow nears.",
+     "date": "2026-11-07"},
+    {"slug": "openai-gpt-6-cyber-critical-rating-november-2026",
+     "title": "OpenAI's New Cyber Model Found 948 Linux Exploits — "
+             "and Got Its Highest Risk Rating",
+     "desc": "GPT-6 Cyber found 81 new high-severity Firefox flaws and "
+             "built working exploits for 948 Linux kernel bugs, earning "
+             "OpenAI's first Critical cybersecurity rating.",
+     "date": "2026-11-07"},
     {"slug": "wall-street-rout-november-5-2026-chips-ai-selloff",
      "title": "Wall Street Gave Back the Whole Rally in One Day — "
              "and Chips Took the Worst of It",
