@@ -254,6 +254,27 @@ GUIDES = [
 # store chrome, a canonical URL, and Article JSON-LD. Descriptions are
 # plain summaries of the post's own content — no invented claims.
 BLOGS = [
+    {"slug": "berkshire-hathaway-q3-2026-abel-buybacks-november-2026",
+     "title": "Berkshire Hathaway's Profit Fell — and It Spent $9.6 "
+             "Billion Buying Its Own Stock Anyway",
+     "desc": "Berkshire's operating earnings fell about 6% to $12.71 "
+             "billion in the third quarter, but Greg Abel's company "
+             "spent $9.6 billion buying back its own shares.",
+     "date": "2026-11-08"},
+    {"slug": "cop31-antalya-opens-november-9-2026",
+     "title": "COP31 Opens Tomorrow in Antalya — the \"Implementation "
+             "COP\" With a First-Ever Shared Presidency",
+     "desc": "The UN climate talks open November 9 in Antalya under a "
+             "first-ever shared Turkish-Australian presidency, with "
+             "national plans pointing to only a 6% emissions cut by 2035.",
+     "date": "2026-11-08"},
+    {"slug": "remembrance-sunday-2026-cenotaph-november-8",
+     "title": "Remembrance Sunday 2026: At 11 O'Clock, Britain Stood "
+             "Still",
+     "desc": "King Charles III led the National Service of Remembrance "
+             "at the Cenotaph as around 10,000 veterans marched past, "
+             "three days before America's Veterans Day.",
+     "date": "2026-11-08"},
     {"slug": "tesla-cybertruck-production-ends-mid-2027",
      "title": "Tesla Is Ending the Cybertruck — and Betting the "
              "Factory on Robotaxis",
