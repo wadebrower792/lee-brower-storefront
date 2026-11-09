@@ -254,6 +254,27 @@ GUIDES = [
 # store chrome, a canonical URL, and Article JSON-LD. Descriptions are
 # plain summaries of the post's own content — no invented claims.
 BLOGS = [
+    {"slug": "google-15-billion-malaysia-data-centers-november-2026",
+     "title": "Google Is Spending $15 Billion on Data Centers in "
+             "Malaysia — and Contractors Should Be Watching",
+     "desc": "Google will invest $15 billion in Malaysia in 2027–2028 "
+             "for new data center campuses, 1 GW of clean energy, and "
+             "training for 800,000 Malaysians — the buildout is spreading.",
+     "date": "2026-11-09"},
+    {"slug": "godzilla-minus-zero-record-opening-november-2026",
+     "title": "Godzilla Just Broke a 22-Year-Old Box Office Record — "
+             "With Subtitles",
+     "desc": "Godzilla Minus Zero opened with $31.6 million in North "
+             "America, the biggest debut ever for a live-action "
+             "foreign-language film, on a budget under $20 million.",
+     "date": "2026-11-09"},
+    {"slug": "norris-sao-paulo-win-mercedes-constructors-november-2026",
+     "title": "Norris Wins in the Rain at São Paulo — and Mercedes "
+             "Clinches the Constructors' Title",
+     "desc": "Lando Norris won a wet São Paulo Grand Prix by 14.6 seconds "
+             "as Mercedes sealed its ninth constructors' title, its first "
+             "since 2021.",
+     "date": "2026-11-09"},
     {"slug": "berkshire-hathaway-q3-2026-abel-buybacks-november-2026",
      "title": "Berkshire Hathaway's Profit Fell — and It Spent $9.6 "
              "Billion Buying Its Own Stock Anyway",
