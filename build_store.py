@@ -254,6 +254,52 @@ GUIDES = [
 # store chrome, a canonical URL, and Article JSON-LD. Descriptions are
 # plain summaries of the post's own content — no invented claims.
 BLOGS = [
+    {"slug": "ai-wont-run-your-store-ftc-ascend-ecom-debunk",
+     "title": "AI Won't Run Your Store While You Sleep. The FTC "
+             "Already Proved It.",
+     "desc": "Ascend Ecom promised AI would run your store and pay you "
+             "thousands a month. The FTC sued — the scheme took at least "
+             "$25 million from buyers.",
+     "date": "2026-11-10"},
+    {"slug": "5453-a-week-15-minutes-ai-tasks-debunk",
+     "title": "$5,453 a Week for 15 Minutes a Day? Show Me the Proof.",
+     "desc": "An ad promises $5,453 a week for 15 minutes a day of AI "
+             "tasks. No public evidence backs it, and the FTC says the "
+             "seller has to prove income claims.",
+     "date": "2026-11-10"},
+    {"slug": "ai-not-better-than-your-doctor-ama-debunk",
+     "title": "AI Is Not Better Than Your Doctor. The Doctors' Own "
+             "Association Said So.",
+     "desc": "The AMA says AI 'cannot replace physician judgment' — and "
+             "only 17% of doctors use AI for diagnosis. The summit claim "
+             "doesn't hold up.",
+     "date": "2026-11-10"},
+    {"slug": "95-percent-ai-pilots-fail-mit-debunk",
+     "title": "\"95% of AI Pilots Fail\"? That's Not What MIT Said.",
+     "desc": "MIT never said 95% of AI pilots fail. One in four pilots "
+             "that actually ran reached production — the headline counts "
+             "people who never tried.",
+     "date": "2026-11-10"},
+    {"slug": "hallucination-free-legal-ai-stanford-debunk",
+     "title": "\"Hallucination-Free\" Legal AI? Stanford Tested It. "
+             "It Isn't.",
+     "desc": "Stanford tested Lexis+ AI and Westlaw AI: they hallucinate "
+             "17–33% of the time. Courts have caught AI-fabricated "
+             "citations 2,289 times.",
+     "date": "2026-11-10"},
+    {"slug": "no-ai-agent-runs-business-alone-debunk",
+     "title": "No AI Agent Runs a Business by Itself. Not One.",
+     "desc": "Gartner says 40%+ of agentic AI projects get cancelled; 68% "
+             "of production agents need a human within ten steps. No agent "
+             "runs a business alone.",
+     "date": "2026-11-10"},
+    {"slug": "muse-ember-not-three-times-cheaper-haiku-debunk",
+     "title": "Muse Ember Is Not Three Times Cheaper Than Haiku. "
+             "Read the Fine Print.",
+     "desc": "Ember's list price is identical to Haiku's — $0.10/$0.50 "
+             "per million tokens. 'A third of the cost' is per task, not "
+             "per token.",
+     "date": "2026-11-10"},
     {"slug": "anthropic-ipo-filing-70-78-share-price-november-2026",
      "title": "Anthropic Put a Price on Its IPO: $70 to $78 a Share, "
              "Worth Over $1 Trillion",
