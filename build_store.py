@@ -254,6 +254,26 @@ GUIDES = [
 # store chrome, a canonical URL, and Article JSON-LD. Descriptions are
 # plain summaries of the post's own content — no invented claims.
 BLOGS = [
+    {"slug": "anthropic-ipo-filing-70-78-share-price-november-2026",
+     "title": "Anthropic Put a Price on Its IPO: $70 to $78 a Share, "
+             "Worth Over $1 Trillion",
+     "desc": "Anthropic's amended S-1 prices its IPO at $70–$78 a share "
+             "for 800 million-plus shares — a valuation above $1 trillion, "
+             "but well under the $2 trillion talked about earlier this year.",
+     "date": "2026-11-10"},
+    {"slug": "california-prop-40-billionaire-tax-rejected-november-2026",
+     "title": "California Voters Said No to the Billionaire Tax",
+     "desc": "Proposition 40, the one-time 5% tax on billionaires, lost "
+             "52.8% to 47.2% as the AP called it — despite Democrats "
+             "winning big almost everywhere else in the midterms.",
+     "date": "2026-11-10"},
+    {"slug": "booker-prize-2026-m-john-harrison-oldest-winner",
+     "title": "At 81, M. John Harrison Just Won the Booker Prize — "
+             "the Oldest Winner Ever",
+     "desc": "Harrison won the 2026 Booker Prize for The End of Everything, "
+             "a 198-page dystopian satire — his 13th novel, his first "
+             "nomination, and the first sci-fi win in the prize's history.",
+     "date": "2026-11-10"},
     {"slug": "google-15-billion-malaysia-data-centers-november-2026",
      "title": "Google Is Spending $15 Billion on Data Centers in "
              "Malaysia — and Contractors Should Be Watching",
