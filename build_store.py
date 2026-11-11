@@ -254,6 +254,13 @@ GUIDES = [
 # store chrome, a canonical URL, and Article JSON-LD. Descriptions are
 # plain summaries of the post's own content — no invented claims.
 BLOGS = [
+    {"slug": "qr-codes-for-every-product-2026-11-11",
+     "title": "Scan a Code, Shop the Store: Every Product in My Store "
+             "Now Has Its Own QR Code",
+     "desc": "Every product in the Lee Brower Storefront now has its own "
+             "QR code — 84 product codes plus two for the whole store, "
+             "all decode-verified, all on one hub page.",
+     "date": "2026-11-11"},
     {"slug": "cpi-october-2026-prices-rose-0-4-percent-what-it-means",
      "title": "October Prices Rose 0.4%. Here's What That Means for "
              "Your Wallet",
