@@ -254,6 +254,27 @@ GUIDES = [
 # store chrome, a canonical URL, and Article JSON-LD. Descriptions are
 # plain summaries of the post's own content — no invented claims.
 BLOGS = [
+    {"slug": "cpi-october-2026-prices-rose-0-4-percent-what-it-means",
+     "title": "October Prices Rose 0.4%. Here's What That Means for "
+             "Your Wallet",
+     "desc": "The BLS says prices rose 0.4% in October, shelter drove "
+             "over 30% of it — and there is no official annual inflation "
+             "rate this month, because October 2025 was never surveyed.",
+     "date": "2026-11-11"},
+    {"slug": "coreweave-q3-2026-revenue-3-66-billion-backlog-132-billion",
+     "title": "CoreWeave Made $3.66 Billion in Three Months — and "
+             "Still Lost $709 Million",
+     "desc": "CoreWeave's revenue jumped 168% to $3.66 billion with a "
+             "$132.5 billion backlog — but $846 million in interest "
+             "expense turned it into a $709 million loss.",
+     "date": "2026-11-11"},
+    {"slug": "openai-10-billion-revenue-10-9-billion-loss-q3-2026",
+     "title": "OpenAI Made $10 Billion Last Quarter — and Lost $10.9 "
+             "Billion Doing It",
+     "desc": "OpenAI's revenue jumped about 50% to $10 billion in Q3 — "
+             "and its operating loss grew to $10.9 billion, while "
+             "Anthropic made $17 billion and lost $567 million.",
+     "date": "2026-11-11"},
     {"slug": "ai-wont-run-your-store-ftc-ascend-ecom-debunk",
      "title": "AI Won't Run Your Store While You Sleep. The FTC "
              "Already Proved It.",
