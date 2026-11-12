@@ -255,6 +255,26 @@ GUIDES = [
 # store chrome, a canonical URL, and Article JSON-LD. Descriptions are
 # plain summaries of the post's own content — no invented claims.
 BLOGS = [
+    {"slug": "nvidia-ceo-jensen-huang-resigns-november-2026",
+     "title": "The Man Who Built the AI Boom Just Resigned",
+     "desc": "Jensen Huang resigned as Nvidia CEO after two affairs "
+             "became public — CFO Colette Kress is interim CEO and the "
+             "board is searching for a successor.",
+     "date": "2026-11-12"},
+    {"slug": "openai-businesses-in-chatgpt-storefront-november-2026",
+     "title": "ChatGPT Just Opened a Storefront — and Small Sellers "
+             "Can Claim a Spot",
+     "desc": "OpenAI launched Businesses in ChatGPT in beta on "
+             "November 10 — free verified profiles and Business Agents "
+             "for US ecommerce, but no checkout yet.",
+     "date": "2026-11-12"},
+    {"slug": "spain-general-strike-housing-november-2026",
+     "title": "Spain Shut Down Over Housing — and the Numbers "
+             "Explain Why",
+     "desc": "Spain's first general strike in more than a decade was "
+             "about housing: a 750,000-home shortage and average rent "
+             "equal to 98.7% of a young worker's pay.",
+     "date": "2026-11-12"},
     {"slug": "qr-codes-for-every-product-2026-11-11",
      "title": "Scan a Code, Shop the Store: Every Product in My Store "
              "Now Has Its Own QR Code",
