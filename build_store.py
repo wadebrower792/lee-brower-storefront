@@ -194,6 +194,7 @@ def write_sitemap(rows: list) -> int:
     for f in sorted((ROOT / "compare").glob("*.html")):
         urls.append((f"{SITE_BASE}/compare/{f.name}", "weekly", "0.8", None))
     urls.append((f"{SITE_BASE}/terms.html", "yearly", "0.5", None))
+    urls.append((f"{SITE_BASE}/qr-codes.html", "weekly", "0.8", None))
     for g in GUIDES:
         urls.append((f"{SITE_BASE}/guides/{g['slug']}.html", "monthly", "0.7", None))
     urls.append((f"{SITE_BASE}/blog/", "daily", "0.8", None))
