@@ -255,6 +255,30 @@ GUIDES = [
 # store chrome, a canonical URL, and Article JSON-LD. Descriptions are
 # plain summaries of the post's own content — no invented claims.
 BLOGS = [
+    {"slug": "microsoft-365-outage-outlook-teams-november-2026",
+     "title": "Microsoft's Email Went Down Worldwide — and It's "
+             "Still Not Fully Back",
+     "desc": "Microsoft 365 went down Thursday afternoon, knocking "
+             "out Outlook, Teams and Copilot for users in 74 "
+             "countries — 130,000 Downdetector reports at the peak, "
+             "no cyberattack found, and no full fix yet.",
+     "date": "2026-11-13"},
+    {"slug": "google-gemini-4-hydrogen-smart-glasses-november-2026",
+     "title": "Google Just Put a New AI Brain Behind Search — and "
+             "Glasses on Your Face",
+     "desc": "Google launched Gemini 4 Hydrogen on November 12, put "
+             "it behind Search the same day, and opened pre-orders "
+             "for Gemini smart glasses starting at $395, on sale "
+             "December 10.",
+     "date": "2026-11-13"},
+    {"slug": "measles-elimination-status-review-november-2026",
+     "title": "America May Lose Its Measles-Free Status After "
+             "26 Years. Here's What That Means.",
+     "desc": "The CDC counted 5,182 measles cases in 2026, the most "
+             "since 1991. PAHO is reviewing the US elimination "
+             "status it has held since 2000, with a decision "
+             "expected November 17.",
+     "date": "2026-11-13"},
     {"slug": "nvidia-ceo-jensen-huang-resigns-november-2026",
      "title": "The Man Who Built the AI Boom Just Resigned",
      "desc": "Jensen Huang resigned as Nvidia CEO after two affairs "
