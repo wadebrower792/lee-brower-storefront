@@ -255,6 +255,31 @@ GUIDES = [
 # store chrome, a canonical URL, and Article JSON-LD. Descriptions are
 # plain summaries of the post's own content — no invented claims.
 BLOGS = [
+    {"slug": "faa-nationwide-ground-stop-november-2026",
+     "title": "Every Plane in America Was Grounded Friday — "
+             "Here's What Happened",
+     "desc": "The FAA grounded all U.S. departures for more than "
+             "four hours Friday after overloaded aging routers "
+             "knocked out air traffic control communications — "
+             "9,159 flights canceled Friday, 3,500-plus more "
+             "Saturday, and no sign of a cyberattack.",
+     "date": "2026-11-14"},
+    {"slug": "starship-flight-15-orbit-booster-abort-november-2026",
+     "title": "Starship Reached Orbit. Its Booster Didn't "
+             "Make It Home.",
+     "desc": "SpaceX's Flight 15 reached orbit and deployed 26 "
+             "Starlink satellites, but the Super Heavy booster "
+             "aborted its tower catch and exploded in the Gulf. "
+             "The Ship's own catch attempt comes Saturday.",
+     "date": "2026-11-14"},
+    {"slug": "flu-season-arrives-early-november-2026",
+     "title": "Flu Season Showed Up Weeks Early — and It's "
+             "Hitting the South Hard",
+     "desc": "Seven states are now at high flu activity, the CDC "
+             "counts 2.6 million illnesses so far this season, "
+             "and H1N1 is driving the early surge — but the "
+             "agency says early does not mean severe.",
+     "date": "2026-11-14"},
     {"slug": "microsoft-365-outage-outlook-teams-november-2026",
      "title": "Microsoft's Email Went Down Worldwide — and It's "
              "Still Not Fully Back",
