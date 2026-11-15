@@ -255,6 +255,31 @@ GUIDES = [
 # store chrome, a canonical URL, and Article JSON-LD. Descriptions are
 # plain summaries of the post's own content — no invented claims.
 BLOGS = [
+    {"slug": "gta-6-launches-november-19-2026",
+     "title": "GTA 6 Lands Thursday — Four Days Out, "
+             "Here's What's Actually Confirmed",
+     "desc": "Grand Theft Auto VI arrives November 19 on PS5 and "
+             "Xbox Series X|S at $79.99, pre-load open, up to "
+             "212 GB — and still no PC date. What's confirmed, "
+             "what's only reported, and what to do before Thursday.",
+     "date": "2026-11-15"},
+    {"slug": "tesla-cybercab-29990-plus-299-a-month-november-2026",
+     "title": "Tesla's Driverless Cybercab Is for Sale — "
+             "$29,990, Plus $299 a Month, Forever",
+     "desc": "Tesla invited select customers to buy the steering-"
+             "wheel-free Cybercab on November 13: $29,990 before "
+             "taxes, a $1,000 non-refundable deposit, and a "
+             "$299 monthly subscription the car will not run without.",
+     "date": "2026-11-15"},
+    {"slug": "data-centre-stocks-lose-4-2-trillion-november-2026",
+     "title": "The AI Building Boom Just Lost $4.2 Trillion — "
+             "and the Builders Are Still Working",
+     "desc": "A Financial Times analysis reports data-centre "
+             "construction stocks lost $4.2tn in market value "
+             "since June — but U.S. data-centre construction "
+             "spending hit $96bn and Caterpillar's backlog is "
+             "at a record $78bn.",
+     "date": "2026-11-15"},
     {"slug": "faa-nationwide-ground-stop-november-2026",
      "title": "Every Plane in America Was Grounded Friday — "
              "Here's What Happened",
