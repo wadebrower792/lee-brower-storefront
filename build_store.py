@@ -255,6 +255,29 @@ GUIDES = [
 # store chrome, a canonical URL, and Article JSON-LD. Descriptions are
 # plain summaries of the post's own content — no invented claims.
 BLOGS = [
+    {"slug": "vulcan-rocket-fails-40-amazon-leo-satellites-november-2026",
+     "title": "A Rocket Failed Sunday — and 40 Amazon "
+             "Satellites Went With It",
+     "desc": "ULA's Vulcan failed 10 minutes into flight Sunday, "
+             "losing all 40 Amazon Leo satellites — the first "
+             "complete mission failure in ULA's 20-year history. "
+             "What happened, and what the investigation means.",
+     "date": "2026-11-16"},
+    {"slug": "us-grid-queue-2061-gw-waiting-november-2026",
+     "title": "2,061 Gigawatts of Power Are Stuck in Line — "
+             "and the Line Is Five Years Long",
+     "desc": "Berkeley Lab counts 2,061 GW of generation and "
+             "storage waiting for a grid connection — 1.5x the "
+             "entire U.S. fleet — with a median five-year wait "
+             "and only 13% ever getting built.",
+     "date": "2026-11-16"},
+    {"slug": "nvidia-earnings-tuesday-november-17-2026",
+     "title": "Nvidia Reports Tuesday — Its First Earnings "
+             "Without Jensen Huang",
+     "desc": "Nvidia reports Tuesday after the close, expecting "
+             "about $109.2B in revenue, with interim CEO Colette "
+             "Kress leading her first call. What to watch.",
+     "date": "2026-11-16"},
     {"slug": "gta-6-launches-november-19-2026",
      "title": "GTA 6 Lands Thursday — Four Days Out, "
              "Here's What's Actually Confirmed",
