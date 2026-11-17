@@ -722,6 +722,27 @@ BLOGS = [
              "shipments and seafarer deaths, while Los Angeles and Long "
              "Beach talks extended to November 5.",
      "date": "2026-10-31"},
+    {"slug": "emergency-alert-test-november-17-2026",
+     "title": "Your TV Will Beep at 1:20 Today — It's Only a Test, and "
+             "Your Phone Won't Ring",
+     "desc": "FEMA's nationwide Emergency Alert System test hits TV and "
+             "radio at 1:20 p.m. Central today — phones stay silent, and "
+             "the 90-day blackout rumors are false.",
+     "date": "2026-11-17"},
+    {"slug": "kerch-bridge-struck-second-day-november-2026",
+     "title": "Ukraine Hit the Crimea Bridge Again — What We Know, and "
+             "What We Don't",
+     "desc": "Zelenskiy confirmed the second-day strike on the 19-km "
+             "Crimea bridge; video appears to show the road arch down, "
+             "but Reuters could not verify it yet.",
+     "date": "2026-11-17"},
+    {"slug": "supreme-court-uc-grants-november-2026",
+     "title": "The Supreme Court Said No to Reviving $59 Million in UC "
+             "Grant Cuts",
+     "desc": "The Court declined to hear Trump v. Thakur, leaving the 9th "
+             "Circuit ruling in place — $59 million in NSF and NEH grants "
+             "stay funded while the case continues.",
+     "date": "2026-11-17"},
 ]
 
 GUIDE_EXTRA_CSS = """
