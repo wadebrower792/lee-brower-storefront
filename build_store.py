@@ -255,6 +255,30 @@ GUIDES = [
 # store chrome, a canonical URL, and Article JSON-LD. Descriptions are
 # plain summaries of the post's own content — no invented claims.
 BLOGS = [
+    {"slug": "social-security-payments-november-18-2026-birthdays-11-20",
+     "title": "Social Security Checks Go Out Today — If Your "
+             "Birthday Falls on the 11th Through the 20th",
+     "desc": "November Social Security payments land today for "
+             "birthdays on the 11th through the 20th. The full "
+             "schedule, the $5,181 maximum, the $2,071 average, "
+             "and the 3.6% COLA coming in January.",
+     "date": "2026-11-18"},
+    {"slug": "aaa-thanksgiving-travel-2026-dip-81-5-million",
+     "title": "Thanksgiving Travel Dips for the First Time in "
+             "Three Years — 81.5 Million Still on the Move",
+     "desc": "AAA projects 81.5 million Americans will travel "
+             "for Thanksgiving, down 0.1% and ending a "
+             "three-year record streak, with gas at $3.82 and "
+             "flights averaging $800 round trip.",
+     "date": "2026-11-18"},
+    {"slug": "california-el-nino-waves-november-2026-50-feet",
+     "title": "California's Biggest Waves in a Decade — "
+             "50-Foot Breakers, and More Swell Coming",
+     "desc": "The biggest waves in over a decade hit California "
+             "on November 14, with 50-foot sets at Mavericks "
+             "and a 31-foot Point Reyes buoy reading, as a "
+             "strong El Niño keeps the ocean unsettled.",
+     "date": "2026-11-18"},
     {"slug": "vulcan-rocket-fails-40-amazon-leo-satellites-november-2026",
      "title": "A Rocket Failed Sunday — and 40 Amazon "
              "Satellites Went With It",
