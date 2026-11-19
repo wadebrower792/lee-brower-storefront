@@ -255,6 +255,30 @@ GUIDES = [
 # store chrome, a canonical URL, and Article JSON-LD. Descriptions are
 # plain summaries of the post's own content — no invented claims.
 BLOGS = [
+    {"slug": "anthropic-ipo-priced-83-largest-us-ipo-november-2026",
+     "title": "Anthropic Priced Its IPO at $83 — the Biggest in "
+             "U.S. History — and Starts Trading Today",
+     "desc": "Anthropic priced at $83 a share, above its range, "
+             "for an $81.3 billion offering — the largest IPO in "
+             "U.S. history — trading today on Nasdaq as ANT at a "
+             "roughly $1.38 trillion valuation.",
+     "date": "2026-11-19"},
+    {"slug": "brevard-flooding-st-johns-river-record-november-2026",
+     "title": "The St. Johns River Just Broke a 73-Year-Old "
+             "Record — and Florida's Space Coast Is Underwater",
+     "desc": "The St. Johns River topped 18 feet, breaking a "
+             "record set in 1953, after 6 to 10 inches of rain "
+             "flooded Brevard County, closed schools, and forced "
+             "water rescues.",
+     "date": "2026-11-19"},
+    {"slug": "banks-ai-agents-your-money-your-risk-november-2026",
+     "title": "Let an AI Agent Into Your Bank Account? The Banks "
+             "Say Whatever Happens Is On You",
+     "desc": "Citi, JPMorgan, Bank of America, PNC, and Citizens "
+             "now say customers are responsible for what "
+             "third-party AI agents do with their accounts — even "
+             "if the agent gets hacked.",
+     "date": "2026-11-19"},
     {"slug": "social-security-payments-november-18-2026-birthdays-11-20",
      "title": "Social Security Checks Go Out Today — If Your "
              "Birthday Falls on the 11th Through the 20th",
