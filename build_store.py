@@ -791,6 +791,25 @@ BLOGS = [
              "Circuit ruling in place — $59 million in NSF and NEH grants "
              "stay funded while the case continues.",
      "date": "2026-11-17"},
+    {"slug": "anthropic-ipo-debut-closes-97-november-2026",
+     "title": "Anthropic's First Day on the Stock Market: Up 17%, the "
+             "Biggest IPO Ever",
+     "desc": "Anthropic closed its first day at $97.17, up 17% from the "
+             "$83 IPO price — a record $81.3 billion offering that passed "
+             "SpaceX as the largest IPO ever.",
+     "date": "2026-11-20"},
+    {"slug": "senate-passes-permitting-reform-baaja-november-2026",
+     "title": "The Senate Just Voted 62-33 to Let America Build Faster",
+     "desc": "The Bipartisan American Affordability and Jobs Act passed "
+             "the Senate 62-33, shrinking the NEPA lawsuit window to 150 "
+             "days and speeding federal permits for big projects.",
+     "date": "2026-11-20"},
+    {"slug": "bepicolombo-mercury-orbit-november-21-2026",
+     "title": "Tomorrow, a Spacecraft Arrives at Mercury After Eight Years",
+     "desc": "BepiColombo is scheduled to enter orbit around Mercury on "
+             "November 21 — the first mission ever with two orbiters, and "
+             "only the second to orbit the planet at all.",
+     "date": "2026-11-20"},
 ]
 
 GUIDE_EXTRA_CSS = """
