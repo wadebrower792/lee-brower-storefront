@@ -255,6 +255,28 @@ GUIDES = [
 # store chrome, a canonical URL, and Article JSON-LD. Descriptions are
 # plain summaries of the post's own content — no invented claims.
 BLOGS = [
+    {"slug": "gta-vi-379-billion-first-day-november-2026",
+     "title": "GTA VI Made $3.79 Billion in One Day — the "
+             "Biggest Entertainment Launch Ever",
+     "desc": "Rockstar says GTA VI took in $3.79 billion in its "
+             "first 24 hours, with 32.5 million pre-release "
+             "copies sold — more in one day than the biggest "
+             "movie ever made in its whole theater run.",
+     "date": "2026-11-21"},
+    {"slug": "ai-selloff-november-20-2026-nasdaq-negative-year",
+     "title": "The AI Stock Rout Hit a New Low Friday — the "
+             "Nasdaq Is Now Down for the Year",
+     "desc": "The S&P 500 fell 3.7% and the Nasdaq fell 5.3% "
+             "on Friday, wiping out the Nasdaq's gains for the "
+             "year as Nvidia fell 14% and the AI trade unwound.",
+     "date": "2026-11-21"},
+    {"slug": "apple-black-friday-2026-gift-cards-300",
+     "title": "Apple's Black Friday Deal Is a Gift Card Up to "
+             "$300 — Here's What You Actually Get",
+     "desc": "Apple's four-day Black Friday event runs November "
+             "27–30 with gift cards from $25 to $300 — but the "
+             "card is for a future purchase, not a price cut.",
+     "date": "2026-11-21"},
     {"slug": "anthropic-ipo-priced-83-largest-us-ipo-november-2026",
      "title": "Anthropic Priced Its IPO at $83 — the Biggest in "
              "U.S. History — and Starts Trading Today",
