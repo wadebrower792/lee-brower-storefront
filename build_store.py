@@ -255,6 +255,28 @@ GUIDES = [
 # store chrome, a canonical URL, and Article JSON-LD. Descriptions are
 # plain summaries of the post's own content — no invented claims.
 BLOGS = [
+    {"slug": "faa-50-billion-overhaul-thanksgiving-travel-november-2026",
+     "title": "The FAA Wants $50 Billion to Fix Air Traffic "
+             "Control — But It Won't Change Your Thanksgiving Flight",
+     "desc": "After the November 13 nationwide ground stop "
+             "canceled 18,000+ flights, Duffy raised the "
+             "air-traffic overhaul ask to $50 billion — but "
+             "Congress balks and none of it changes Thanksgiving week.",
+     "date": "2026-11-22"},
+    {"slug": "medicare-open-enrollment-ends-december-7-2026",
+     "title": "Medicare Open Enrollment Ends December 7 — and "
+             "This Year the Stakes Are Higher Than Usual",
+     "desc": "193 counties will have no Medicare Advantage plans "
+             "in 2027, Part B rises to $209.40, and the Part D "
+             "cap goes to $2,400 — what to check before the deadline.",
+     "date": "2026-11-22"},
+    {"slug": "cop31-climate-talks-collapse-antalya-november-2026",
+     "title": "COP31 Just Collapsed in Turkey — the First Climate "
+             "Summit to Break Down Since 2009",
+     "desc": "After two weeks in Antalya, the longest climate "
+             "summit in history ended with no deal — the final "
+             "text never mentioned fossil fuels.",
+     "date": "2026-11-22"},
     {"slug": "gta-vi-379-billion-first-day-november-2026",
      "title": "GTA VI Made $3.79 Billion in One Day — the "
              "Biggest Entertainment Launch Ever",

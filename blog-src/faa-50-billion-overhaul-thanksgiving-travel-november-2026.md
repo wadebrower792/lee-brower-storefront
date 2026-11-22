@@ -1,0 +1,27 @@
+# The FAA Wants $50 Billion to Fix Air Traffic Control — But It Won't Change Your Thanksgiving Flight
+
+By Wade Lee Brower Jr, November 22, 2026
+
+If you're flying for Thanksgiving this week, here's the plain truth: the fight in Washington over air traffic control money won't change a thing about your flight. What it will change is whether the system that just grounded the whole country gets rebuilt — or keeps limping along on copper wire and routers from another era.
+
+On Friday, November 13, the FAA grounded aircraft nationwide — only the second time since September 11, 2001 — stranding more than a million people. Reuters reported more than 18,000 flights were canceled in the cascade that followed.
+
+The cause, according to Transportation Secretary Sean Duffy, was painfully simple for a system this important: a federal contractor, L3Harris, was doing routine maintenance, switching a telecommunications line from old copper wire to modern fiber optics at a remote FAA site in El Dorado, Arkansas. A new router went in, the system got flooded with data — the FAA said "excessive data" was hitting it at a rate of 1,000 connection attempts every 4 to 5 seconds — and communications developed gaps.
+
+Before the ground stop, Duffy and White House budget director Russell Vought had asked Congress for about $30 billion: $10.1 billion for air traffic control modernization and $18 billion for airport projects. After the grounding, Duffy raised the ask to $50 billion — $50.1 billion, divided into five categories of roughly equal size, including $10 billion to modernize air traffic control — to replace the hardware, software, telecommunications, and facilities outright. Duffy said companies including AT&T, Verizon, and Lumen are ready to deploy a "brand new architecture" tomorrow if the money is there.
+
+Congress is not sold on the full number. On Tuesday, November 17, Duffy met with Republican senators, and several said they would not back the full $50 billion, though they signaled willingness to fund a smaller, safety-focused package. "I don't think the full $50 billion will be funded. Some of that is not safety related," said Sen. Ted Cruz, chairman of the Senate Commerce Committee. Sen. John Kennedy of Louisiana put it more bluntly: "We're not going to give them $50 billion. But I think that we are willing to provide the money to replace the copper wires with fiber optics, and to try to stop the bleeding." Duffy said he is open to Congress breaking the request into pieces, starting with the most critical safety needs. Democrats, meanwhile, are asking how billions already given have been spent — Congress approved $12.5 billion in 2025 to modernize the air traffic system, with the first phase supposed to be finished by December 2028, and the FAA has been trying to modernize this system for decades, through administrations of both parties, without ever finishing the job.
+
+So what does any of this mean for your Thanksgiving trip? The Transportation Security Administration said it expects to screen potentially more than 3 million passengers nationwide, and Airlines for America expects November 29 and 30 — the Sunday and Monday after Thanksgiving — to be the busiest travel days of the holiday period. The funding debate changes none of that. Even money already approved takes years to turn into new radar, radios, and network equipment, and Duffy himself warned after the ground stop that similar failures could happen again until the aging hardware is replaced.
+
+The practical takeaway: build in a buffer. Fly early in the day, when there are more rebooking options if something goes wrong. Avoid tight connections. And if you're flying on the Sunday or Monday after Thanksgiving — the two busiest days — know that those flights have the least spare room if systems falter. A Saturday or Tuesday return can leave more seats to rebook into.
+
+As a builder, I look at this the way I look at any job site: you don't wait for the wiring to burn before you replace it. Copper wire, routers that overload, a system held together by patches — that's a job that was deferred for decades, and now the bill comes due all at once, in front of 3 million holiday travelers. Whether Congress writes a $50 billion check or a smaller one, the work itself is years of construction. Somebody has to build it. Let's hope they start soon.
+
+Sources: [Associated Press via WTTW — "Congress Skeptical as Trump Officials Seek $50B for Air Travel System"](https://live-news-wttw.pantheonsite.io/2026/11/17/faa-halts-installation-routers-led-ground-stop); [CNN — "With the busiest travel season ahead, how likely is it that another FAA ground stop happens?"](https://www.cnn.com/2026/11/16/us/faa-ground-stop-thanksgiving-travel?cid=external-feeds_iluminar_meta); [Associated Press via Britannica — "Trump administration asks for billions to overhaul FAA"](https://mendel-preview.dev-ext.britannica.com/news/203348/1a308c557552b2ce24a0532fee0be191)
+
+---
+
+## From Lee's store
+
+[Lee Brower Storefront](https://wadebrower792.github.io/lee-brower-storefront/) · [Gumroad store](https://wadebrower.gumroad.com/) · [Contractor Quote & Bid Kit — $97](https://wadebrower.gumroad.com/l/vmjexh) · [Contractor AI Playbook — $19](https://wadebrower.gumroad.com/l/axqqo) · [ContractorOS — Solo $49, Pro $149, Business $399, Contractor $799 per month, 1-month free trial](https://wadebrower.gumroad.com/l/contractoros-v3)
