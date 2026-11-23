@@ -255,6 +255,27 @@ GUIDES = [
 # store chrome, a canonical URL, and Article JSON-LD. Descriptions are
 # plain summaries of the post's own content — no invented claims.
 BLOGS = [
+    {"slug": "delta-automation-outage-thanksgiving-flights-november-2026",
+     "title": "Delta's Computer Glitch Delayed 1,000+ Flights — "
+             "Days Before Thanksgiving",
+     "desc": "A database issue in Delta's weight-and-balance "
+             "system delayed 1,600+ flights Sunday — half its "
+             "mainline schedule — days before Thanksgiving.",
+     "date": "2026-11-23"},
+    {"slug": "thanksgiving-storm-east-coast-rain-wind-november-2026",
+     "title": "A Thanksgiving Storm Is Coming to the East Coast — "
+             "Rain, 50 mph Winds, and Flooding",
+     "desc": "The National Weather Service warns of 1–4 inches "
+             "of rain and 50+ mph gusts along the East Coast "
+             "from Wednesday through Saturday.",
+     "date": "2026-11-23"},
+    {"slug": "stocks-rebound-monday-ai-selloff-november-2026",
+     "title": "Wall Street Bounced Back Monday — After the AI "
+             "Sell-Off Put Every Major Index in Correction",
+     "desc": "Futures jumped Monday after the S&P 500 fell 8.6% "
+             "last week into correction and the Nasdaq went "
+             "negative for the year.",
+     "date": "2026-11-23"},
     {"slug": "faa-50-billion-overhaul-thanksgiving-travel-november-2026",
      "title": "The FAA Wants $50 Billion to Fix Air Traffic "
              "Control — But It Won't Change Your Thanksgiving Flight",
