@@ -255,6 +255,26 @@ GUIDES = [
 # store chrome, a canonical URL, and Article JSON-LD. Descriptions are
 # plain summaries of the post's own content — no invented claims.
 BLOGS = [
+    {"slug": "jensen-huang-reinstated-nvidia-ceo-november-2026",
+     "title": "Eleven Days Later, Jensen Huang Is Nvidia's CEO Again",
+     "desc": "Nvidia reinstated Huang on November 23, eleven days "
+             "after he resigned — shares jumped 33%, its biggest "
+             "one-day gain in 23 years, but questions remain.",
+     "date": "2026-11-24"},
+    {"slug": "south-korea-375000-reward-ai-exam-cheating-november-2026",
+     "title": "South Korea Will Pay You $375,000 to Catch an AI "
+             "Exam Cheat",
+     "desc": "Up to 500 million won for tips that catch students "
+             "using AI to cheat on the Suneung — after 111 smart-"
+             "device violations on exam day.",
+     "date": "2026-11-24"},
+    {"slug": "aaa-thanksgiving-travel-81-5-million-november-2026",
+     "title": "81.5 Million Americans Are Traveling for Thanksgiving "
+             "— Starting Today",
+     "desc": "AAA projects 81.5 million travelers from November 24 "
+             "to 30, with 72.9 million driving — a small dip that "
+             "still ends a three-year record streak.",
+     "date": "2026-11-24"},
     {"slug": "delta-automation-outage-thanksgiving-flights-november-2026",
      "title": "Delta's Computer Glitch Delayed 1,000+ Flights — "
              "Days Before Thanksgiving",
